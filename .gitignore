@@ -41,5 +41,4 @@ yarn-error.log*
 next-env.d.ts
 
 # large media files
-public/vids/*.mp4
 legacy_html_backup/
