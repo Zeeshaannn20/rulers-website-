@@ -1,11 +1,30 @@
-import './globals.css';
+import '../styles/globals.css';
 import type { Metadata } from 'next';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
+import SmoothScroll from '@/components/SmoothScroll';
+import CustomCursor from '@/components/CustomCursor';
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: 'NexusAds | The Future of AI Advertising',
-  description: 'Marketing and Ad agency specializing in AI-driven cinematic commercials.',
+  title: 'Rulers Studio | Cinematic AI Ad Marketing Agency',
+  description: 'We make ads that machines dream of. Awwwards-caliber cinematic AI-driven commercials and marketing campaigns.',
 };
 
 export default function RootLayout({
@@ -14,13 +33,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="antialiased bg-[#030303] text-white selection:bg-neon-cyan selection:text-black min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
+    >
+      <body
+        className="antialiased bg-black text-white min-h-screen flex flex-col"
+        style={{ cursor: 'none', overflowX: 'hidden' }}
+      >
+        <CustomCursor />
+        <SmoothScroll>
+          <main className="flex-1">
+            {children}
+          </main>
+        </SmoothScroll>
       </body>
     </html>
   );

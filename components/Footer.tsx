@@ -1,70 +1,68 @@
-import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
-
-import Image from 'next/image';
+'use client';
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-black border-t border-white/10 py-16 px-8 mt-24 relative overflow-hidden">
-      {/* Subtle neon glow in the background */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-brand-lime to-transparent opacity-50" />
-      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-lime rounded-full blur-[150px] opacity-[0.03] pointer-events-none" />
+    <footer className="bg-black text-white pt-24 pb-8 overflow-hidden relative border-t-2 border-white/10">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 flex flex-col justify-between min-h-[50vh]">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-24">
+          <div>
+            <h4 className="font-display font-black text-2xl uppercase tracking-tighter text-brand-lime mb-6">
+              Rulers Studio
+            </h4>
+            <p className="font-sans text-white/50 text-sm max-w-xs leading-relaxed">
+              We merge cutting-edge AI generation with cinematic storytelling to create impossible worlds for visionary brands.
+            </p>
+          </div>
+          
+          <div>
+            <h5 className="font-mono font-bold uppercase tracking-widest text-sm mb-6 text-white/70">Connect</h5>
+            <ul className="space-y-4 font-sans font-medium">
+              <li><a href="#" className="hover:text-brand-lime transition-colors">Instagram</a></li>
+              <li><a href="#" className="hover:text-brand-lime transition-colors">Twitter (X)</a></li>
+              <li><a href="#" className="hover:text-brand-lime transition-colors">LinkedIn</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h5 className="font-mono font-bold uppercase tracking-widest text-sm mb-6 text-white/70">Location</h5>
+            <ul className="space-y-4 font-sans font-medium text-white/70">
+              <li>101 Metaverse Blvd</li>
+              <li>New York, NY 10012</li>
+              <li>United States</li>
+            </ul>
+          </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
-        <div className="col-span-1 md:col-span-2">
-          <Link href="/" className="flex items-center gap-3 mb-6">
-            <Image src="/logo/Rulers Studio Logo-1.jpg" alt="Rulers Studio Logo" width={48} height={48} className="rounded-md" />
-            <span className="text-3xl font-black tracking-tighter uppercase text-super-glow-lime">
-              Rulers<span className="text-brand-lime">Studio</span>
-            </span>
-          </Link>
-          <p className="text-white/60 font-light max-w-sm mb-8">
-            We engineer desire through cinematic AI commercials and brand experiences that refuse to look ordinary.
-          </p>
-          <div className="flex gap-4">
-            <a href="#" className="w-10 h-10 flex items-center justify-center border border-white/10 rounded-full hover:border-brand-lime hover:text-brand-lime transition-colors text-xs font-bold">
-              IG
-            </a>
-            <a href="#" className="w-10 h-10 flex items-center justify-center border border-white/10 rounded-full hover:border-brand-lime hover:text-brand-lime transition-colors text-xs font-bold">
-              X
-            </a>
-            <a href="#" className="w-10 h-10 flex items-center justify-center border border-white/10 rounded-full hover:border-brand-lime hover:text-brand-lime transition-colors text-xs font-bold">
-              LI
+          <div>
+            <h5 className="font-mono font-bold uppercase tracking-widest text-sm mb-6 text-white/70">Inquiries</h5>
+            <a href="mailto:hello@rulersstudio.com" className="font-display font-bold text-2xl hover:text-brand-lime transition-colors">
+              hello@rulersstudio.com
             </a>
           </div>
         </div>
 
-        <div>
-          <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-6">Navigation</h4>
-          <ul className="space-y-4 text-white/60 text-sm">
-            <li><Link href="/" className="hover:text-brand-lime transition-colors">Home</Link></li>
-            <li><Link href="/about" className="hover:text-brand-lime transition-colors">About Us</Link></li>
-            <li><Link href="/services" className="hover:text-brand-lime transition-colors">Services</Link></li>
-            <li><Link href="/contact" className="hover:text-brand-lime transition-colors">Contact</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-6">Contact</h4>
-          <ul className="space-y-4 text-white/60 text-sm">
-            <li className="flex items-center gap-2 group cursor-pointer hover:text-brand-lime transition-colors">
-              hello@rulers.studio <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-            </li>
-            <li>+1 (555) 019-2837</li>
-            <li className="pt-4 text-white/40">
-              123 Innovation Drive<br />
-              Cyber City, CA 90210
-            </li>
-          </ul>
+        <div className="flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-8 mt-auto">
+          <p className="font-mono text-xs text-white/40 uppercase tracking-widest mb-4 md:mb-0">
+            &copy; {new Date().getFullYear()} Rulers Studio. All Rights Reserved.
+          </p>
+          <div className="flex gap-6 font-mono text-xs text-white/40 uppercase tracking-widest">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          </div>
         </div>
       </div>
-      
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-white/40">
-        <p>&copy; {new Date().getFullYear()} NexusAds Agency. All rights reserved.</p>
-        <div className="flex gap-6 mt-4 md:mt-0">
-          <Link href="#" className="hover:text-white">Privacy Policy</Link>
-          <Link href="#" className="hover:text-white">Terms of Service</Link>
-        </div>
+
+      {/* Giant R Watermark */}
+      <div className="absolute bottom-0 right-0 pointer-events-none translate-y-1/4 translate-x-1/4 opacity-[0.03]">
+        <svg 
+          width="800" 
+          height="800" 
+          viewBox="0 0 120 120" 
+          fill="white" 
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M30 100 V10 H70 C85 10 95 20 95 35 C95 50 85 60 70 60 H50 V100 M50 60 L90 100" stroke="white" strokeWidth="20" strokeLinecap="square" strokeLinejoin="miter"/>
+        </svg>
       </div>
     </footer>
   );
